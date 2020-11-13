@@ -20,6 +20,17 @@ let homeSchema = mongoose.Schema({
 
 let Listing = mongoose.model('Listing', homeSchema);
 
+function findAll(callback) {
+  Listing.find({}, (err, data) => {
+    if (err) {
+      console.log(err);
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
 // save inserts multiple stories into the db
 // let save = (queryArr, callback) => {
 
@@ -34,4 +45,5 @@ let Listing = mongoose.model('Listing', homeSchema);
 // }
 
 module.exports.Listing = Listing;
+module.exports.findAll = findAll;
 // module.exports.save = save;

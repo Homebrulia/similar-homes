@@ -29,7 +29,7 @@ let createListing = (id) => {
     size_sqft : `${size_sqft[id%5]}`,
     address : `${address[id%2]}`,
     neighborhood : `${neighborhood[id%2]}`,
-    image : `${images[id % 3]}`,
+    image : `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${id}house.jpg`,
     favorite : false
   }
 }
@@ -51,7 +51,7 @@ seedData = (entries) => {
   })
 }
 
-seedData(2);
+seedData(100);
 
 // function createRecord(images, prices, size_bd, size_ba, size_sqft, address, neighborhood, id) {
 //   let home = {};
