@@ -15,8 +15,13 @@ let homeSchema = mongoose.Schema({
   address: String,
   neighborhood: String,
   image: String,
+  similar: Array,
   favorite: Boolean
+
 })
+
+
+
 
 let Listing = mongoose.model('Listing', homeSchema);
 
