@@ -1,10 +1,11 @@
-var express = require('express');
-var listingController = require('../../db/index.js');
+const express = require('express');
 
-var router = express.Router();
+const listingController = require('../../db/index.js');
+
+const router = express.Router();
 
 router.route('/api/listings')
-  .get(function(req, res) {
+  .get((req, res) => {
     listingController.findAll((err, data) => {
       if (err) {
         res.sendStatus(404);
@@ -13,7 +14,6 @@ router.route('/api/listings')
         res.end();
       }
     });
-
   });
 
 module.exports = router;

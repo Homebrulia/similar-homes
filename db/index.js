@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const fs = require('fs');
+// const fs = require('fs');
 
-mongoose.connect('mongodb://localhost:/similarhomes')
+mongoose.connect('mongodb://localhost:/similarhomes');
 
-let homeSchema = mongoose.Schema({
+const homeSchema = mongoose.Schema({
   id: {
     type: Number,
-    unique: true
+    unique: true,
   },
   price: Number,
   size_bd: Number,
@@ -16,19 +16,15 @@ let homeSchema = mongoose.Schema({
   neighborhood: String,
   image: String,
   similar: Array,
-  favorite: Boolean
+  favorite: Boolean,
+});
 
-})
-
-
-
-
-let Listing = mongoose.model('Listing', homeSchema);
+const Listing = mongoose.model('Listing', homeSchema);
 
 function findAll(callback) {
   Listing.find({}, (err, data) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       callback(err);
     } else {
       callback(null, data);
