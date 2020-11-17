@@ -29,7 +29,7 @@ module.exports = {
         console.log('Error getting data');
         res.sendStatus(404);
       } else {
-        console.log(data);
+        // console.log(data);
         res.json(data);
       }
     });

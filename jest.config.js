@@ -14,5 +14,8 @@ module.exports = {
   },
   transform: {
     '\\.jsx$': 'babel-jest',
+    '\\.js$': 'babel-jest',
+    '\\.css$': 'babel-jest',
+    '\\.scss$': 'babel-jest',
   },
 };

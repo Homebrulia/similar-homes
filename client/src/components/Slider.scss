@@ -1,0 +1,26 @@
+.slider {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  height: 160px;
+  width: 224px;
+  min-height: auto;
+  min-width: auto;
+  display: block;
+  cursor: pointer;
+  transition: all 0s ease 0s;
+  box-sizing: border-box;
+  margin: 9px;
+}
+
+img {
+  float: center;
+  width:  225px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}

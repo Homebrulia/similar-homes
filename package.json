@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.6",
+    "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.13.0",
@@ -31,18 +32,22 @@
     "jest": "^26.6.3",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "node-sass": "^5.0.0",
+    "nodesass": "0.0.2-security",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "serialize-javascript": ">=2.1.1",
     "body-parser": "^1.19.0",
     "express": "^4.15.0",
     "mongoose": "^4.6.4",
     "nodemon": "^1.19.2",
     "react": "^16.10.1",
-    "react-dom": "^16.10.1"
+    "react-dom": "^16.10.1",
+    "serialize-javascript": ">=2.1.1"
   },
   "babel": {
     "presets": [
