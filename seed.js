@@ -25,15 +25,107 @@ const listingArr = [];
 
 const createListing = (id) => ({
   id: id,
-  price: `${prices[id%5]}`,
-  size_bd: `${size_bd[id%5]}`,
-  size_ba: `${size_ba[id%5]}`,
-  size_sqft: `${size_sqft[id%5]}`,
-  address: `${Math.floor(Math.random() * 3000)} ${address[id%6]}`,
-  neighborhood: `${neighborhood[id%6]}`,
-  image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${id}house.jpg`,
-  similar: id < 89 ? [id+1, id+2, id+3, id+4, id+5, id+6, id+7, id+8, id+9, id+10, id+11, id+12] : [id-4, id-5, id-6, id-7, id-8, id-9, id-10, id-11, id-12],
-  favorite: false,
+  similar: [
+    {
+      id: id,
+      price: `${prices[id%5]}`,
+      size_bd: `${size_bd[id%5]}`,
+      size_ba: `${size_ba[id%5]}`,
+      size_sqft: `${size_sqft[id%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[id%6]}`,
+      neighborhood: `${neighborhood[id%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${id}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+1),
+      price: `${prices[(id+1)%5]}`,
+      size_bd: `${size_bd[(id+1)%5]}`,
+      size_ba: `${size_ba[(id+1)%5]}`,
+      size_sqft: `${size_sqft[(id+1)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+1)%6]}`,
+      neighborhood: `${neighborhood[(id+1)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+1)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+2),
+      price: `${prices[(id+2)%5]}`,
+      size_bd: `${size_bd[(id+2)%5]}`,
+      size_ba: `${size_ba[(id+2)%5]}`,
+      size_sqft: `${size_sqft[(id+2)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+2)%6]}`,
+      neighborhood: `${neighborhood[(id+2)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+2)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+3),
+      price: `${prices[(id+3)%5]}`,
+      size_bd: `${size_bd[(id+3)%5]}`,
+      size_ba: `${size_ba[(id+3)%5]}`,
+      size_sqft: `${size_sqft[(id+3)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+3)%6]}`,
+      neighborhood: `${neighborhood[(id+3)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+3)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+4),
+      price: `${prices[(id+4)%5]}`,
+      size_bd: `${size_bd[(id+4)%5]}`,
+      size_ba: `${size_ba[(id+4)%5]}`,
+      size_sqft: `${size_sqft[(id+4)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+4)%6]}`,
+      neighborhood: `${neighborhood[(id+4)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+4)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+5),
+      price: `${prices[(id+5)%5]}`,
+      size_bd: `${size_bd[(id+5)%5]}`,
+      size_ba: `${size_ba[(id+5)%5]}`,
+      size_sqft: `${size_sqft[(id+5)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+5)%6]}`,
+      neighborhood: `${neighborhood[(id+5)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+5)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+6),
+      price: `${prices[(id+6)%5]}`,
+      size_bd: `${size_bd[(id+6)%5]}`,
+      size_ba: `${size_ba[(id+6)%5]}`,
+      size_sqft: `${size_sqft[(id+6)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+6)%6]}`,
+      neighborhood: `${neighborhood[(id+6)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+6)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+7),
+      price: `${prices[(id+7)%5]}`,
+      size_bd: `${size_bd[(id+7)%5]}`,
+      size_ba: `${size_ba[(id+7)%5]}`,
+      size_sqft: `${size_sqft[(id+7)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+7)%6]}`,
+      neighborhood: `${neighborhood[(id+7)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+7)}house.jpg`,
+      favorite: false,
+    },
+    {
+      id: (id+8),
+      price: `${prices[(id+8)%5]}`,
+      size_bd: `${size_bd[(id+8)%5]}`,
+      size_ba: `${size_ba[(id+8)%5]}`,
+      size_sqft: `${size_sqft[(id+8)%5]}`,
+      address: `${Math.floor(Math.random() * 3000)} ${address[(id+8)%6]}`,
+      neighborhood: `${neighborhood[(id+8)%6]}`,
+      image: `https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+pictures/${(id+8)}house.jpg`,
+      favorite: false,
+    },
+  ],
 });
 
 const seedData = (entries) => {
@@ -44,7 +136,6 @@ const seedData = (entries) => {
     // console.log('listing arr', listingArr);
     created += 1;
   }
-
   Listing.Listing.insertMany(listingArr, { ordered: false }, (err) => {
     if (err) {
       console.error('MONGO ERR', err);
@@ -55,3 +146,6 @@ const seedData = (entries) => {
 };
 
 seedData(100);
+
+
+  // similar: id < 89 ? [id+1, id+2, id+3, id+4, id+5, id+6, id+7, id+8, id+9, id+10, id+11, id+12] : [id-4, id-5, id-6, id-7, id-8, id-9, id-10, id-11, id-12],

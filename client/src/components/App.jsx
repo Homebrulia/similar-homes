@@ -1,10 +1,17 @@
 import React from 'react';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listings: []
+    }
+  }
+
   render() {
     return (
       <div>
-        Hello World
+        Chris is the best
       </div>
     );
   }

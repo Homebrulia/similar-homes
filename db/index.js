@@ -8,31 +8,123 @@ const homeSchema = mongoose.Schema({
     type: Number,
     unique: true,
   },
-  price: Number,
-  size_bd: Number,
-  size_ba: Number,
-  size_sqft: Number,
-  address: String,
-  neighborhood: String,
-  image: String,
-  similar: Array,
-  favorite: Boolean,
+  similar: [
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+    {
+      id: Number,
+      price: Number,
+      size_bd: Number,
+      size_ba: Number,
+      size_sqft: Number,
+      address: String,
+      neighborhood: String,
+      image: String,
+      favorite: Boolean,
+    },
+  ],
 });
 
 const Listing = mongoose.model('Listing', homeSchema);
 
-function findAll(callback) {
-  Listing.find({}, (err, data) => {
-    if (err) {
-      // console.log(err);
-      callback(err);
-    } else {
-      callback(null, data);
-    }
-  });
-}
+// function findAll(callback) {
+//   Listing.find({}, (err, data) => {
+//     if (err) {
+//       // console.log(err);
+//       callback(err);
+//     } else {
+//       callback(null, data);
+//     }
+//   });
+// }
 
-// save inserts multiple stories into the db
+// save inserts multiple into the db
 // let save = (queryArr, callback) => {
 
 //   Listing.insertMany(queryArr, {ordered: false}, (err, result) => {
@@ -46,5 +138,6 @@ function findAll(callback) {
 // }
 
 module.exports.Listing = Listing;
-module.exports.findAll = findAll;
+// module.exports.findAll = findAll;
+// module.exports.find = find;
 // module.exports.save = save;
