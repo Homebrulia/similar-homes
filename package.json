@@ -45,7 +45,7 @@
     "express": "^4.15.0",
     "mongoose": "^4.6.4",
     "nodemon": "^1.19.2",
-    "react": "^16.10.1",
+    "react": "^16.8.6",
     "react-dom": "^16.10.1",
     "serialize-javascript": ">=2.1.1"
   },
