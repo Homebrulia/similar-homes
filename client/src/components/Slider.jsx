@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './Slider.scss';
+import './Slider.scss';
 import Description from './Description.jsx';
 
 function Slider({ listings }) {
