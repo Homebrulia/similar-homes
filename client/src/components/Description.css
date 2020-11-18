@@ -36,4 +36,5 @@ img.avatar {
   width: 20px;
   display: inline;
   box-sizing: border-box;
+  /* align-items: baseline; */
 }
