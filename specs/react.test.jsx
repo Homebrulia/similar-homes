@@ -1,20 +1,11 @@
-// import React from 'react'
-// import {mount, shallow} from 'enzyme'
+import React from 'react';
+import {mount, shallow} from 'enzyme';
+import App from '../client/src/components/App.jsx'
+import Header from '../client/src/components/Header.jsx'
 
-// function Fixture() {
-//   return (
-//     <div>
-//       <input id="checked" defaultChecked />
-//       <input id="not" defaultChecked={false} />
-//       <input id="tertiary" defaultChecked checked={false} />
-//     </div>
-//   );
-// }
-
-// describe('<Fixture />', () => {
-//   it('assert checked', () => {
-//     const wrapper = mount(<Fixture />);
-//     expect(wrapper.find('#checked')).toBeChecked();
-//     expect(wrapper.find('#not')).not.toBeChecked();
-//   });
-// });
+describe('<Header />', () => {
+  it('Header exists', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Header)).toHaveLength(1);
+  });
+});

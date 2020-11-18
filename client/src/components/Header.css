@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 .header {
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  /* font-weight: 600; */
   line-height: 24px;
   text-align: start;
   letter-spacing: -0.1px;
+  text-decoration: none solid rgb(59, 65, 68);
 }

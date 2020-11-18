@@ -12,16 +12,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/listings/69')
+    axios({
+      method: 'get',
+      url: `${window.location.href}listing`,
+    })
       .then((response) => {
-        // response.data[0].similar returns array of similar homes
-        // response.data[0].similar[0].image returns image url
-        console.log('res', response.data[0].similar);
-        this.setState({ listings: response.data[0].similar });
+        console.log('success', response.data);
+        this.setState({
+          listings: response.data,
+        });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((err) => console.log(err));
   }
 
   render() {

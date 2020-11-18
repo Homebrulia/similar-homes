@@ -1,3 +1,4 @@
+// the entire image carousel
 .slider {
   width: 100%;
   box-sizing: border-box;
@@ -5,22 +6,40 @@
   align-items: center;
 }
 
+// each listing image and its description
 .slide {
-  height: 160px;
-  width: 224px;
-  min-height: auto;
-  min-width: auto;
-  display: block;
   cursor: pointer;
-  transition: all 0s ease 0s;
-  box-sizing: border-box;
-  margin: 9px;
+  width: 224px;
+  min-width: 224px;
+  overflow: hidden;
+  margin: 9px; // space btwn each listing from trulia
+  border-radius: 10px; // rounded corners
+}
+
+.image {
+  overflow: hidden; // keep frame the same size when zooming in
+  border-radius: 10px; // keep rounded corners when zooming in
 }
 
 img {
+  box-sizing: border-box;
+  display: block;
   float: center;
-  width:  225px;
+  width:  224px;
   height: 160px;
+  max-height: 160px;
+  max-width: 224px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 10px; // rounded corners
+}
+
+.slide img {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  vertical-align: middle;
+}
+
+.slide img:hover {
+  -webkit-transform:scale(1.1); /* Safari and Chrome */
+  transform:scale(1.1);
 }

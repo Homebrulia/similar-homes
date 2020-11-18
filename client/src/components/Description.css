@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+ul.description {
+  list-style-type: none;
+  margin: 0;
+  height: 104px;
+  width: 224px;
+  padding: 8px 0 0 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none solid rgb(59, 65, 68);
+  letter-spacing: -0.1px;
+  word-spacing: 0px;
+  display: block;
+}
+
+li.price {
+  height: 24px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  /* font weight is for TruliaSans - will refractor */
+  white-space: nowrap;
+}
