@@ -21,6 +21,9 @@
   margin: 9px; // space btwn each listing from trulia
   border-radius: 10px; // rounded corners
   flex-shrink: 0;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 .image {
@@ -61,9 +64,13 @@ img {
   border-top-right-radius: 24px;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  box-sizing: border-box;
-  box-shadow: rgba(134, 144, 153, 0.18) 0px 8px 16px 0px, rgba(59, 65, 68, 0.05) 0px 2px 4px 0px;
   outline: none;
+  box-sizing: border-box;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: rgba(134, 144, 153, 0.18) 0px 8px 16px 0px, rgba(59, 65, 68, 0.05) 0px 2px 4px 0px;
+    cursor: pointer;
+  }
 }
 
 button img {
