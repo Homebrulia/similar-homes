@@ -1,5 +1,5 @@
 import React from 'react';
-import './Slider.scss';
+import css from './Slider.scss';
 import Description from './Description.jsx';
 
 function Slider({ listings }) {
@@ -13,6 +13,8 @@ function Slider({ listings }) {
           <Description id={listing.id} listing={listing} />
         </div>
       ))}
+      <button className="goLeft"><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>
+      <button className="goRight"><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>
     </div>
   );
 }

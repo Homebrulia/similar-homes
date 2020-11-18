@@ -5,10 +5,10 @@ const fs = require('fs');
 const Listing = require('./db/index.js');
 
 // data for each listing
-const prices = [6000000, 7000000, 8000000, 9000000, 10000000];
+const prices = ['6,000,000', '7,000,000', '8,000,000', '9,000,000', '10,000,000'];
 const size_bd = [3, 4, 5, 6, 7];
 const size_ba = [2, 3, 4, 5, 6];
-const size_sqft = [2000, 3000, 4000, 5000, 6000];
+const size_sqft = ['3,500', '4,000', '4,500', '5,000', '5,500'];
 const address = ['Presidio Ter', 'Sea Cliff Ave', 'Glenbrook Ave', 'Marina Blvd', 'Scott St', 'Filbert St'];
 const neighborhood = ['Pacific Heights, San Francisco, CA', 'Bernal Heights, San Francisco, CA', 'Noe Valley, San Francisco, CA', 'Castro, San Francisco, CA', 'Seacliff, San Francisco, CA', 'Clarendon Heights, San Francisco, CA'];
 
