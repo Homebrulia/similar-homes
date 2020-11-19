@@ -1,19 +1,29 @@
-// the entire image carousel
+/* // the entire image carousel (flexbox container) */
 .slider {
-  width: 100%;
+  width: 992px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: center; //align button and all items to center
+  transition: 0.5s;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: scroll; //keeps it to the specified width
+  white-space: nowrap;
 }
 
-// each listing image and its description
+/* // each listing image and its description (flexbox items) */
 .slide {
   cursor: pointer;
+  display: inline-block;
   width: 224px;
   min-width: 224px;
   overflow: hidden;
   margin: 9px; // space btwn each listing from trulia
   border-radius: 10px; // rounded corners
+  flex-shrink: 0;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 .image {
@@ -54,8 +64,13 @@ img {
   border-top-right-radius: 24px;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
+  outline: none;
   box-sizing: border-box;
-  box-shadow: rgba(134, 144, 153, 0.18) 0px 8px 16px 0px, rgba(59, 65, 68, 0.05) 0px 2px 4px 0px;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: rgba(134, 144, 153, 0.18) 0px 8px 16px 0px, rgba(59, 65, 68, 0.05) 0px 2px 4px 0px;
+    cursor: pointer;
+  }
 }
 
 button img {
