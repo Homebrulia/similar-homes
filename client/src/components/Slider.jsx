@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Slider.scss';
+import styles from './Slider.scss';
 import Description from './Description.jsx';
 
 function Slider({ listings }) {
@@ -15,7 +15,7 @@ function Slider({ listings }) {
     (x === -400) ? setNoLeftButton(true) : null;
   };
   const goRight = () => {
-    console.log(x);
+    // console.log(x);
     // prevent scrolling past last flexbox item and hide right button if at the end of slider
     // if right button is ever clicked, show left button
     setNoLeftButton(false);
@@ -24,17 +24,17 @@ function Slider({ listings }) {
   };
   return (
     <>
-      <div className="slider">
+      <div className={styles.slider}>
         {listings.map((listing, index) => (
-          <div key={index} className="slide" style={{ transform: `translateX(${x}%)` }}>
-            <div className="image">
+          <div key={index} className={styles.slide} style={{ transform: `translateX(${x}%)` }}>
+            <div className={styles.image}>
               <img src={listing.image} />
             </div>
             <Description id={listing.id} listing={listing} />
           </div>
         ))}
-      { noLeftButton ? null : <button className="goLeft" onClick={goLeft}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>}
-      { noRightButton ? null : <button className="goRight" onClick={goRight}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>}
+      { noLeftButton ? null : <button className={styles.goLeft} onClick={goLeft}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>}
+      { noRightButton ? null : <button className={styles.goRight} onClick={goRight}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>}
       </div>
     </>
   );

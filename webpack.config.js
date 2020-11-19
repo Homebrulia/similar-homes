@@ -37,22 +37,19 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
     ],
   },
 };
-
-// works to fix webpack for scss but does not render page correctly
-// {
-//   test: /\.s[ac]ss$/i,
-//   use: [
-//     // Creates `style` nodes from JS strings
-//     "style-loader",
-//     // Translates CSS into CommonJS
-//     "css-loader",
-//     // Compiles Sass to CSS
-//     "sass-loader",
-//   ],
-// }

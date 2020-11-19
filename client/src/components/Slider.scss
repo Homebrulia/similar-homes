@@ -1,4 +1,4 @@
-// the entire image carousel (flexbox container)
+/* // the entire image carousel (flexbox container) */
 .slider {
   width: 992px;
   box-sizing: border-box;
@@ -11,7 +11,7 @@
   white-space: nowrap;
 }
 
-// each listing image and its description (flexbox items)
+/* // each listing image and its description (flexbox items) */
 .slide {
   cursor: pointer;
   display: inline-block;
