@@ -32,6 +32,7 @@
     "jest": "^26.6.3",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "jest-transform-stub": "^2.0.0",
     "node-sass": "^5.0.0",
     "nodesass": "0.0.2-security",
     "sass-loader": "^10.1.0",
