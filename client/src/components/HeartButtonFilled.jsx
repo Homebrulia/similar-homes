@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './HeartButton.css';
 
 const HeartButtonFilled = ({
-  listing, id, saveListing, savedListing, changeImage,
+  heartListing, id,
 }) => (
 
   <button
     // type='submit'
     id={styles.heartbtn}
-    onClick={(event) => saveListing(event)}
+    onClick={() => heartListing()}
   >
 
     <img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg" />
