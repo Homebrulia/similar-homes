@@ -1,0 +1,38 @@
+#heartbtn {
+  position: absolute;
+  overflow: hidden;
+  display: inline;
+  top: 2.5%;
+  left: 81%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  outline:none;
+}
+
+#heartbtn img:hover {
+  transition: none;
+  transform: none;
+  -webkit-transform: none;
+}
+
+/* #clickedheartbtn {
+  background: url("https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg");
+  position: absolute;
+  overflow: hidden;
+  display: inline;
+  top: 2.5%;
+  left: 81%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  outline:none;
+}
+
+#clickedheartbtn img:hover {
+  transition: none;
+  transform: none;
+  -webkit-transform: none;
+} */
