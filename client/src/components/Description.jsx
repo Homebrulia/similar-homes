@@ -9,7 +9,7 @@ const Description = ({ listing, id }) => (
 
     <li> {listing.address} </li>
 
-    <li> {listing.neighborhood} </li>
+    <li className={styles.neighborhood}> {listing.neighborhood} </li>
   </ul>
 )
 
