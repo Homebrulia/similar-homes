@@ -35,15 +35,13 @@ function Slider({ listings }) {
   };
 
   return (
-    <div className={styles.outer}>
-      <div className={styles.slider}>
-        {listings.map((listing, index) => (
-          <Slide key={index} id={index} listing={listing} x={x} />
-        ))}
-          <TakeALook />
-        {noLeftButton ? null : <button className={styles.goLeft} onClick={goLeft}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>}
-        {noRightButton ? null : <button className={styles.goRight} onClick={goRight}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>}
-      </div>
+    <div className={styles.slider}>
+      {noLeftButton ? null : <button className={styles.goLeft} onClick={goLeft}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>}
+      {listings.map((listing, index) => (
+        <Slide key={index} id={index} listing={listing} x={x} />
+      ))}
+      <TakeALook />
+      {noRightButton ? null : <button className={styles.goRight} onClick={goRight}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>}
     </div>
   );
 }
