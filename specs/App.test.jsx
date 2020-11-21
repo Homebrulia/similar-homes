@@ -1,5 +1,5 @@
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import App from '../client/src/components/App.jsx'
 import Header from '../client/src/components/Header.jsx'
 

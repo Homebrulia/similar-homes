@@ -48,9 +48,31 @@ img {
 }
 
 .image img:hover {
-  -webkit-transform:scale(1.1); /* Safari and Chrome */
-  transform:scale(1.1);
+  -webkit-transform: scale(1.1); /* Safari and Chrome */
+  transform: scale(1.1);
 }
+
+#heartbtn {
+  position: absolute;
+  overflow: hidden;
+  display: inline;
+  top: 2.5%;
+  left: 81%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  outline:none;
+}
+// get rid of img hover effect on heart
+#heartbtn img:hover {
+  transition: none;
+  transform: none;
+  -webkit-transform: none;
+}
+// selecting img element that are direct children of an element with id heartbtn
+// #heartbtn > img {
+// }
 
 %btn-styles {
   position: absolute;
