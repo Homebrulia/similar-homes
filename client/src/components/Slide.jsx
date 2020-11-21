@@ -21,9 +21,7 @@ class Slide extends React.Component {
   }
 
   render() {
-
     const heartToRender = this.state.heart ? <HeartButtonFilled heartListing={this.heartListing} id={this.props.id} /> : <HeartButton heartListing={this.heartListing} id={this.props.id} />;
-
     return (
       <div>
         <div className={styles.slide} style={{ transform: `translateX(${this.props.x}%)` }}>

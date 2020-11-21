@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Slider from './Slider.jsx';
 import Header from './Header.jsx';
+import styles from './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={styles.app}>
         <Header />
         <Slider listings={this.state.listings} />
       </div>
