@@ -1,3 +1,10 @@
+// .outer {
+//   width: 992px;
+//   max-width: 992px;
+//   margin-right: 187px;
+//   margin-left: 187px;
+// }
+
 /* // the entire image carousel (flexbox container) */
 .slider {
   width: 992px;
@@ -9,6 +16,7 @@
   justify-content: space-between;
   overflow: scroll; //keeps it to the specified width
   white-space: nowrap;
+  margin: auto;
 }
 
 /* // each listing image and its description (flexbox items) */
@@ -75,6 +83,8 @@ img {
 // }
 
 %btn-styles {
+  display: inline-block;
+  overflow: auto;
   position: absolute;
   height: 32px;
   width: 32px;
@@ -99,11 +109,13 @@ button img {
 }
 
 .goLeft {
-  left: 0;
+  left: 0%;
   @extend %btn-styles;
 }
 
 .goRight {
-  right: 0;
+  // position: absolute;
+  // float: right;
+  right: 0%;
   @extend %btn-styles;
 }

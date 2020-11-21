@@ -10,6 +10,7 @@
 import React, { useState } from 'react';
 import styles from './Slider.scss';
 import Slide from './Slide.jsx';
+import TakeALook from './TakeALook.jsx';
 
 function Slider({ listings }) {
   // declare state variables using array destructuring
@@ -33,59 +34,18 @@ function Slider({ listings }) {
     (x === -100 * ((listings.length - 1) / 2)) ? setNoRightButton(true) : null;
   };
 
-  // const saveListing = () => {
-  //   setSavedListing(!savedListing);
-  // };
-
   return (
-    <>
+    <div className={styles.outer}>
       <div className={styles.slider}>
         {listings.map((listing, index) => (
           <Slide key={index} id={index} listing={listing} x={x} />
         ))}
+          <TakeALook />
         {noLeftButton ? null : <button className={styles.goLeft} onClick={goLeft}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/larrow.svg" /></button>}
         {noRightButton ? null : <button className={styles.goRight} onClick={goRight}><img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/rarrow.svg" /></button>}
       </div>
-    </>
+    </div>
   );
 }
 
 export default Slider;
-
-  // function changeImage(id) {
-  //   if (document.getElementById(`imgClickAndChange${id}`).src === "https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartunclicked.svg") {
-  //     document.getElementById(`imgClickAndChange${id}`).src = "https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg";
-  //   } else {
-  //     document.getElementById(`imgClickAndChange${id}`).src = "https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartunclicked.svg";
-  //   }
-  // }
-
-      // setSavedListing(!savedListing);
-
-    // if (hearted[count]) {
-    //   delete hearted[count];
-    // } else {
-    //   hearted[count] = count;
-    // }
-
-    // if (savedListing.includes(heartId)) {
-    //   var array = [...savedListing];
-    //   array.splice(heartId, 1);
-    //   setSavedListing(array);
-    // } else {
-    //   setSavedListing([...savedListing, heartId]);
-    // }
-
-      // const findListing = (listings) => {
-  //   // map and match savedListing
-  //   listings.map((listing) => {
-  //     if (savedListing.includes(listing.id)) {
-  //       return true;
-  //     }
-  //   });
-  //   return false;
-  // }
-
-      // event.target.style.background = 'url(https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg)';
-
-                    {/* <HeartButton listing={listing} heartId={listing.id} saveListing={saveListing} savedListing={savedListing} /> */}
