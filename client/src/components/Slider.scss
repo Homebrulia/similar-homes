@@ -1,7 +1,8 @@
 /* // the entire image carousel (flexbox container) */
 .slider {
   width: 992px;
-  box-sizing: border-box;
+  // position: relative;
+  // box-sizing: border-box;
   display: flex;
   align-items: center; //align button and all items to center
   transition: 0.5s;
@@ -10,6 +11,7 @@
   overflow: scroll; //keeps it to the specified width
   white-space: nowrap;
   margin: auto;
+  z-index: -10;
 }
 
 /* // each listing image and its description (flexbox items) */
@@ -54,11 +56,12 @@
 }
 
 %btn-styles {
-  // display: inline-block;
+  display: inline-block;
+  z-index: 2;
   // overflow: auto;
   position: absolute;
   margin: auto;
-  top: 17%;
+  // top: 17%;
   height: 32px;
   width: 32px;
   border: 1px solid #FFFFFF;
@@ -77,19 +80,16 @@
 }
 
 button img {
-  margin: auto;
   height: auto;
   width: auto;
 }
 
 .goLeft {
-  left: +120px;
-  z-index: 3;
-  position: relative;
+  left: 220px;
   @extend %btn-styles;
 }
 
 .goRight {
-  right: +120px;
+  right: +220px;
   @extend %btn-styles;
 }
