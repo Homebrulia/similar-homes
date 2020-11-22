@@ -1,5 +1,9 @@
 .app {
+  /* width: 100vw; */
   width: 992px;
   max-width: 992px;
   margin: auto;
+  /* z-index: -10; */
+  /* padding-left: 20%;
+  padding-right: 20%; */
 }
