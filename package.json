@@ -9,7 +9,9 @@
   },
   "scripts": {
     "test": "jest",
+    "test:cover": "jest --coverage",
     "react-dev": "webpack -w",
+    "react-prod": "webpack",
     "start": "nodemon ./server/server.js",
     "seed-database": "node seed.js"
   },
@@ -20,6 +22,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "^6.1.1",
     "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
