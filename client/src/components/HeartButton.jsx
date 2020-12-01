@@ -19,10 +19,3 @@ const HeartButton = ({
 );
 
 export default HeartButton;
-
-// savedListing.includes(id) ? styles.clickedheartbtn :
-
-{ /* <img src={savedListing.includes(id) ? "https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg" : "https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartunclicked.svg"}/> */ }
-
-{ /* {savedListing.includes(id) ? */ }
-{ /* // <img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartclicked.svg" /> : <img src="https://s3-us-west-1.amazonaws.com/fec.similarhomes/FEC+avatars/heartunclicked.svg" />} */ }

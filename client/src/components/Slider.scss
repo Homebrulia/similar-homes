@@ -1,7 +1,7 @@
 /* // the entire image carousel (flexbox container) */
 .slider {
   width: 992px;
-  // position: relative;
+  position: relative;
   // box-sizing: border-box;
   display: flex;
   align-items: center; //align button and all items to center
@@ -11,7 +11,7 @@
   overflow: scroll; //keeps it to the specified width
   white-space: nowrap;
   margin: auto;
-  z-index: -10;
+  // z-index: -10;
 }
 
 /* // each listing image and its description (flexbox items) */
@@ -20,11 +20,16 @@
   display: inline-block;
   width: 224px;
   min-width: 224px;
-  overflow: hidden;
+  // overflow: hidden;
   margin: 9px; // space btwn each listing from trulia
   border-radius: 10px; // rounded corners
   flex-shrink: 0;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.contents {
+  flex-direction: row;
+  display: flex;
 }
 
 .image {
@@ -55,16 +60,21 @@
   transform: scale(1.1);
 }
 
+.sliderButtons {
+  width: 992px;
+  max-width: 992px;
+  margin: auto;
+}
+
 %btn-styles {
   display: inline-block;
-  z-index: 2;
-  // overflow: auto;
   position: absolute;
   margin: auto;
-  // top: 17%;
+  top: 41%;
   height: 32px;
   width: 32px;
-  border: 1px solid #FFFFFF;
+  background-color: white;
+  border: 1px solid rgb(230, 230, 230);
   padding: 1px 1px 1px 1px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
@@ -79,17 +89,25 @@
   }
 }
 
-button img {
-  height: auto;
-  width: auto;
+.sliderButtons button img {
+  height: 17px;
+  width: 17px;
+  position: absolute;
+  right: 22%;
+  top: 22%;
 }
 
 .goLeft {
-  left: 220px;
+  left: 0%;
+  z-index: 2;
+  // left: auto;
   @extend %btn-styles;
 }
 
 .goRight {
-  right: +220px;
+  right: 0%;
+  z-index: 2;
+  // right: 0;
+  // right: auto;
   @extend %btn-styles;
 }
