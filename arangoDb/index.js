@@ -20,7 +20,6 @@ db.createDatabase('similar_homes')
           bath: { type: "number"},
           sqft: { type: "number"},
           address: { type: "string", "maxLength" : 100},
-          similar_listings: { type: "array", items: { type: "object", maximum: 18 } }
         },
         required: ["url", "price", "bed", "bath", "sqft", "address"]
       },
@@ -31,6 +30,22 @@ db.createDatabase('similar_homes')
   })
   .then(() => {
     console.log('listings created');
+    var similar_listings = db.collection('similar_listings');
+    var schema = {
+      rule: {
+        properties: {
+          listing_id : {type: "number"},
+          similar_listings: { type: "array", items: { type: "object", maximum: 18 } }
+        },
+        required: ["listing_id", "similar_listings"]
+      },
+      level: "moderate",
+      message: "Schema validation failed."
+    };
+    return similar_listings.create({'schema': schema});
+  })
+  .then(() => {
+    console.log('similar_listings created');
     var users = db.collection('users');
     var schema = {
       rule: {
@@ -48,6 +63,22 @@ db.createDatabase('similar_homes')
   })
   .then(() => {
     console.log('users created');
+    var user_fav = db.collection('user_fav');
+    var schema = {
+      rule: {
+        properties: {
+          user_id : {type: "number"},
+          fav_listings: { type: "array", items: { type: "object"} }
+        },
+        required: ["user_id", "fav_listings"]
+      },
+      level: "moderate",
+      message: "Schema validation failed."
+    };
+    return user_fav.create({'schema': schema});
+  })
+  .then(() => {
+    console.log('user_fav created');
   })
   .catch(err => console.error('Failed to create:', err));
 
