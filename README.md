@@ -33,14 +33,14 @@ npm install
 **Request Body:**
 ```
 {
-  "image_url": "http://some.fake.url/photo1.png",
-  "price": 20000000,
-  "Size_bd": 6,
-  "Size_ba": 6,
-  "Size_sqft": 3000,
-  "address": "17 Presidio Ter",
-  "neighborhood": "Lake, San Francisco, CA",
-  "favorite": false
+  "imageUrl": "String",
+  "price": Number,
+  "bed": Number,
+  "bath": Number,
+  "sqft": Number,
+  "address": "String",
+  "neighborhood": "String",
+  "favorite": Boolean
 }
 ```
 **Response Object:**  HTTP Status Code 201
@@ -50,18 +50,22 @@ npm install
 **Endpoint:**  /listings/:id/similar\
 **Response Object:**
 ```
-[
-  {
-    "image_url": "http://some.fake.url/photo1.png",
-    "price": 20000000,
-    "Size_bd": 6,
-    "Size_ba": 6,
-    "Size_sqft": 3000,
-    "address": "17 Presidio Ter",
-    "neighborhood": "Lake, San Francisco, CA",
-    "favorite": false
-  }
-]
+{
+  "similarHomes" :
+  [
+    {
+      "imageUrl": "String",
+      "price": Number,
+      "bed": Number,
+      "bath": Number,
+      "sqft": Number,
+      "address": "String",
+      "neighborhood": "String",
+      "favorite": Boolean
+    }
+  ]
+  "neighborhood" : "String"
+}
 ```
 
 ## Update:
@@ -70,14 +74,7 @@ npm install
 **Request Body:**
 ```
 {
-  "image_url": "http://some.fake.url/photo1.png",
-  "price": 20000000,
-  "Size_bd": 6,
-  "Size_ba": 6,
-  "Size_sqft": 3000,
-  "address": "17 Presidio Ter",
-  "neighborhood": "Lake, San Francisco, CA",
-  "favorite": false
+  "new_similar_id": Number,
 }
 ```
 **Response Object:**  HTTP Status Code 200
