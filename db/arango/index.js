@@ -12,6 +12,7 @@ db.createDatabase('similar_homes')
     var listings = db.collection('listings');
     var schema = {
       rule: {
+        type: "object",
         properties: {
           _key: { type: "number"},
           url: { type: "string", "maxLength" : 100},
@@ -35,7 +36,22 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           listing_id : {type: "number"},
-          similar_listings: { type: "array", items: { type: "object", maximum: 18 } }
+          similar_listings: {
+            type: "array",
+            items: {
+              type: "object",
+              maximum: 18,
+              properties: {
+                _key: { type: "number"},
+                url: { type: "string", "maxLength" : 100},
+                price: { type: "number"},
+                bed: { type: "number"},
+                bath: { type: "number"},
+                sqft: { type: "number"},
+                address: { type: "string", "maxLength" : 100},
+              },
+            }
+          }
         },
         required: ["listing_id", "similar_listings"]
       },
@@ -52,7 +68,6 @@ db.createDatabase('similar_homes')
         properties: {
           _key: { type: "number"},
           name: { type: "string", "maxLength" : 20},
-          fav_listings: { type: "array", items: { type: "object"} }
         },
         required: ["name"]
       },
@@ -68,7 +83,21 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           user_id : {type: "number"},
-          fav_listings: { type: "array", items: { type: "object"} }
+          fav_listings: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                _key: { type: "number"},
+                url: { type: "string", "maxLength" : 100},
+                price: { type: "number"},
+                bed: { type: "number"},
+                bath: { type: "number"},
+                sqft: { type: "number"},
+                address: { type: "string", "maxLength" : 100},
+              },
+            }
+          }
         },
         required: ["user_id", "fav_listings"]
       },
