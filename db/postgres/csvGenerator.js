@@ -2,7 +2,7 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 100;
+var totalRecords = 50;
 
 function writeListings(totalRecords) {
   var writer = csvWriter({ headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
@@ -58,3 +58,43 @@ function writeUsers(totalRecords) {
 }
 writeUsers(totalRecords);
 
+function writeSimilarListings(totalRecords) {
+  var writer = csvWriter({ headers: ["listing_id", "similar_listing_id"]});
+  writer.pipe(fs.createWriteStream(__dirname + '/similarListings.csv'));
+
+  var listingId = 1;
+  function helper() {
+    for (; listingId <= totalRecords; listingId++) {
+      for (var i = 0; i < 12; i++) {
+        var similarListingId = Math.floor(Math.random() * totalRecords + 1);
+        if (!writer.write([listingId, similarListingId])) {
+          writer.once('drain', helper);
+        }
+      }
+    }
+    writer.end();
+  }
+  helper();
+}
+writeSimilarListings(totalRecords);
+
+function writeUserFav(totalRecords) {
+  var writer = csvWriter({ headers: ["user_id", "listing_id"]});
+  writer.pipe(fs.createWriteStream(__dirname + '/userFav.csv'));
+
+  var userId = 1;
+  function helper() {
+    for (; userId <= totalRecords; userId++) {
+      var counter = Math.floor(Math.random() * 10);
+      for (var i = 0; i < counter; i++) {
+        var listingId = Math.floor(Math.random() * totalRecords + 1);
+        if (!writer.write([userId, listingId])) {
+          writer.once('drain', helper);
+        }
+      }
+    }
+    writer.end();
+  }
+  helper();
+}
+writeUserFav(totalRecords);

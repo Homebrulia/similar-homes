@@ -45,10 +45,10 @@ var users = `
 `
 var user_fav = `
 	CREATE TABLE user_fav(
-		listing_id INT NOT NULL,
 		user_id INT NOT NULL,
-		FOREIGN KEY(listing_id) REFERENCES listings(id) ON DELETE CASCADE,
+		listing_id INT NOT NULL,
 		FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+		FOREIGN KEY(listing_id) REFERENCES listings(id) ON DELETE CASCADE,
 	);
 `
 
