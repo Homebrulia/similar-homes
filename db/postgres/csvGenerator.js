@@ -2,7 +2,7 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 50;
+var totalRecords = 100;
 
 function writeListings(totalRecords) {
   var writer = csvWriter({ headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
@@ -21,6 +21,7 @@ function writeListings(totalRecords) {
 
   var listingId = 1;
   function helper() {
+    writer.removeListener('drain', helper);
     for (; listingId <= totalRecords; listingId++) {
       var price = Math.floor(Math.random() * 100000000 + 20000000);
       var bed = Math.floor(Math.random() * 8 + 5);
@@ -30,7 +31,9 @@ function writeListings(totalRecords) {
         writer.once('drain', helper);
       }
     }
-    writer.end();
+    if (listingId > totalRecords) {
+      writer.end();
+    }
   }
   helper();
 }
@@ -47,12 +50,15 @@ function writeUsers(totalRecords) {
 
   var userId = 1;
   function helper() {
+    writer.removeListener('drain', helper);
     for (; userId <= totalRecords; userId++) {
       if (!writer.write([userId, names[userId % names.length]])) {
         writer.once('drain', helper);
       }
     }
-    writer.end();
+    if (userId > totalRecords) {
+      writer.end();
+    }
   }
   helper();
 }
@@ -64,6 +70,7 @@ function writeSimilarListings(totalRecords) {
 
   var listingId = 1;
   function helper() {
+    writer.removeListener('drain', helper);
     for (; listingId <= totalRecords; listingId++) {
       for (var i = 0; i < 12; i++) {
         var similarListingId = Math.floor(Math.random() * totalRecords + 1);
@@ -72,7 +79,9 @@ function writeSimilarListings(totalRecords) {
         }
       }
     }
-    writer.end();
+    if (listingId > totalRecords) {
+      writer.end();
+    }
   }
   helper();
 }
@@ -84,6 +93,7 @@ function writeUserFav(totalRecords) {
 
   var userId = 1;
   function helper() {
+    writer.removeListener('drain', helper);
     for (; userId <= totalRecords; userId++) {
       var counter = Math.floor(Math.random() * 10);
       for (var i = 0; i < counter; i++) {
@@ -93,7 +103,9 @@ function writeUserFav(totalRecords) {
         }
       }
     }
-    writer.end();
+    if (userId > totalRecords) {
+      writer.end();
+    }
   }
   helper();
 }
