@@ -36,9 +36,15 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           listing_id : {type: "number"},
-          similar_listing: {type: "object"}
+          similar_listings: {
+            type: "array",
+            items: {
+              type: "object",
+              maximum: 12,
+            }
+          }
         },
-        required: ["listing_id", "similar_listing"]
+        required: ["listing_id", "similar_listings"]
       },
       level: "moderate",
       message: "Schema validation failed."
@@ -68,9 +74,14 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           user_id : {type: "number"},
-          fav_listing: {type: "object"}
+          fav_listings: {
+            type: "array",
+            items: {
+              type: "object",
+            }
+          }
         },
-        required: ["user_id", "fav_listing"]
+        required: ["user_id", "fav_listings"]
       },
       level: "moderate",
       message: "Schema validation failed."
