@@ -2,7 +2,7 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 100;
+var totalRecords = 10000000;
 
 function writeListings(totalRecords) {
   var writer = csvWriter({ headers: ["_key", "url", "price", "bed", "bath", "sqft", "address"]});
@@ -20,19 +20,21 @@ function writeListings(totalRecords) {
   }
 
   var listingId = 1;
+  writer.on('drain', helper);
   function helper() {
-    writer.removeListener('drain', helper);
     for (; listingId <= totalRecords; listingId++) {
       var price = Math.floor(Math.random() * 100000000 + 20000000);
       var bed = Math.floor(Math.random() * 8 + 5);
       var bath = Math.floor(Math.random() * 8 + 8);
       var sqft = Math.floor(Math.random() * 30000 + 15000);
-      if (!writer.write([listingId, urls[listingId % urls.length], price, bed, bath, sqft, addresses[listingId % addresses.length]])) {
-        writer.once('drain', helper);
+      if (listingId === totalRecords) {
+        writer.write([listingId, urls[listingId % urls.length], price, bed, bath, sqft, addresses[listingId % addresses.length]], () => {
+          writer.end();
+          writer.removeListener('drain', helper);
+        });
+      } else if (!writer.write([listingId, urls[listingId % urls.length], price, bed, bath, sqft, addresses[listingId % addresses.length]])) {
+        return;
       }
-    }
-    if (listingId > totalRecords) {
-      writer.end();
     }
   }
   helper();
@@ -49,15 +51,17 @@ function writeUsers(totalRecords) {
   }
 
   var userId = 1;
+  writer.on('drain', helper);
   function helper() {
-    writer.removeListener('drain', helper);
     for (; userId <= totalRecords; userId++) {
-      if (!writer.write([userId, names[userId % names.length]])) {
-        writer.once('drain', helper);
+      if(userId === totalRecords) {
+        writer.write([userId, names[userId % names.length]], () => {
+          writer.end();
+          writer.removeListener('drain', helper);
+        });
+      } else if (!writer.write([userId, names[userId % names.length]])) {
+        return;
       }
-    }
-    if (userId > totalRecords) {
-      writer.end();
     }
   }
   helper();
@@ -69,18 +73,20 @@ function writeSimilarListings(totalRecords) {
   writer.pipe(fs.createWriteStream(__dirname + '/similarListings.csv'));
 
   var listingId = 1;
+  writer.on('drain', helper);
   function helper() {
-    writer.removeListener('drain', helper);
     for (; listingId <= totalRecords; listingId++) {
       for (var i = 0; i < 12; i++) {
         var similarListingId = Math.floor(Math.random() * totalRecords + 1);
-        if (!writer.write([listingId, similarListingId])) {
-          writer.once('drain', helper);
+        if(listingId === totalRecords && i === 11) {
+          writer.write([listingId, similarListingId], () => {
+            writer.end();
+            writer.removeListener('drain', helper);
+          });
+        } else if (!writer.write([listingId, similarListingId])) {
+          return;
         }
       }
-    }
-    if (listingId > totalRecords) {
-      writer.end();
     }
   }
   helper();
@@ -92,19 +98,21 @@ function writeUserFav(totalRecords) {
   writer.pipe(fs.createWriteStream(__dirname + '/userFav.csv'));
 
   var userId = 1;
+  writer.on('drain', helper);
   function helper() {
-    writer.removeListener('drain', helper);
     for (; userId <= totalRecords; userId++) {
       var counter = Math.floor(Math.random() * 10);
       for (var i = 0; i < counter; i++) {
         var listingId = Math.floor(Math.random() * totalRecords + 1);
-        if (!writer.write([userId, listingId])) {
-          writer.once('drain', helper);
+        if (userId === totalRecords && i === counter - 1) {
+          writer.write([userId, listingId], () => {
+            writer.end();
+            writer.removeListener('drain', helper);
+          });
+        } else if (!writer.write([userId, listingId])) {
+          return;
         }
       }
-    }
-    if (userId > totalRecords) {
-      writer.end();
     }
   }
   helper();
