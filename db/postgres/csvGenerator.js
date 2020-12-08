@@ -2,10 +2,10 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 10000000;
+var totalRecords = 10**3;
 
 function writeListings(totalRecords) {
-  var writer = csvWriter({ headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
+  var writer = csvWriter({separator: '^', headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
   writer.pipe(fs.createWriteStream(__dirname + '/listings.csv'));
 
   let urls = [];
@@ -33,6 +33,7 @@ function writeListings(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write([listingId, urls[listingId % urls.length], price, bed, bath, sqft, addresses[listingId % addresses.length]])) {
+        listingId++;
         return;
       }
     }
@@ -42,7 +43,7 @@ function writeListings(totalRecords) {
 writeListings(totalRecords);
 
 function writeUsers(totalRecords) {
-  var writer = csvWriter({ headers: ["id", "name"]});
+  var writer = csvWriter({separator: '^', headers: ["id", "name"]});
   writer.pipe(fs.createWriteStream(__dirname + '/users.csv'));
 
   let names = [];
@@ -60,6 +61,7 @@ function writeUsers(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write([userId, names[userId % names.length]])) {
+        userId++;
         return;
       }
     }
@@ -69,7 +71,7 @@ function writeUsers(totalRecords) {
 writeUsers(totalRecords);
 
 function writeSimilarListings(totalRecords) {
-  var writer = csvWriter({ headers: ["listing_id", "similar_listing_id"]});
+  var writer = csvWriter({separator: '^', headers: ["listing_id", "similar_listing_id"]});
   writer.pipe(fs.createWriteStream(__dirname + '/similarListings.csv'));
 
   var listingId = 1;
@@ -84,6 +86,7 @@ function writeSimilarListings(totalRecords) {
             writer.removeListener('drain', helper);
           });
         } else if (!writer.write([listingId, similarListingId])) {
+          listingId++;
           return;
         }
       }
@@ -94,7 +97,7 @@ function writeSimilarListings(totalRecords) {
 writeSimilarListings(totalRecords);
 
 function writeUserFav(totalRecords) {
-  var writer = csvWriter({ headers: ["user_id", "listing_id"]});
+  var writer = csvWriter({separator: '^', headers: ["user_id", "listing_id"]});
   writer.pipe(fs.createWriteStream(__dirname + '/userFav.csv'));
 
   var userId = 1;
@@ -110,6 +113,7 @@ function writeUserFav(totalRecords) {
             writer.removeListener('drain', helper);
           });
         } else if (!writer.write([userId, listingId])) {
+          userId++;
           return;
         }
       }
