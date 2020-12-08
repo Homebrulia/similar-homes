@@ -37,6 +37,7 @@ function writeListings(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write(listings[listingId - 1])) {
+        listingId++;
         return;
       }
     }
@@ -64,6 +65,7 @@ function writeUsers(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write([userId, names[userId % names.length]])) {
+        userId++;
         return;
       }
     }
@@ -91,6 +93,7 @@ function writeSimilarListings(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write([listingId, JSON.stringify(similarListings)])) {
+        listingId++;
         return;
       }
     }
@@ -119,6 +122,7 @@ function writeUserFav(totalRecords) {
           writer.removeListener('drain', helper);
         });
       } else if (!writer.write([userId, JSON.stringify(userListings)])) {
+        userId++;
         return;
       }
     }
