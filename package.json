@@ -16,6 +16,7 @@
     "seed-database": "node seed.js",
     "arango-schema": "node db/arango/index.js",
     "arango-csv": "node db/arango/csvGenerator.js",
+    "arango-load": "bash db/arango/loadData.sh",
     "postgres-schema": "node db/postgres/index.js",
     "postgres-csv": "node db/postgres/csvGenerator.js",
     "postgres-load": "psql postgres -f db/postgres/loadData.sql"

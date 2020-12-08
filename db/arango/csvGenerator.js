@@ -2,11 +2,11 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 10**7;
+var totalRecords = 10**3;
 var listings = [];
 
 function writeListings(totalRecords) {
-  var writer = csvWriter({separator: '^'});
+  var writer = csvWriter();
   writer.pipe(fs.createWriteStream(__dirname + '/listings.csv'));
 
   let urls = [];
@@ -35,6 +35,8 @@ function writeListings(totalRecords) {
         writer.write(listings[listingId - 1], () => {
           writer.end();
           writer.removeListener('drain', helper);
+          writeSimilarListings(totalRecords);
+          writeUserFav(totalRecords);
         });
       } else if (!writer.write(listings[listingId - 1])) {
         listingId++;
@@ -47,7 +49,7 @@ function writeListings(totalRecords) {
 writeListings(totalRecords);
 
 function writeUsers(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["_key", "name"]});
+  var writer = csvWriter({headers: ["_key", "name"]});
   writer.pipe(fs.createWriteStream(__dirname + '/users.csv'));
 
   let names = [];
@@ -75,7 +77,7 @@ function writeUsers(totalRecords) {
 writeUsers(totalRecords);
 
 function writeSimilarListings(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["listing_id", "similar_listings"]});
+  var writer = csvWriter({headers: ["listing_id", "similar_listings"]});
   writer.pipe(fs.createWriteStream(__dirname + '/similarListings.csv'));
 
   var listingId = 1;
@@ -100,10 +102,9 @@ function writeSimilarListings(totalRecords) {
   }
   helper();
 }
-writeSimilarListings(totalRecords);
 
 function writeUserFav(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["user_id", "fav_listings"]});
+  var writer = csvWriter({ headers: ["user_id", "fav_listings"]});
   writer.pipe(fs.createWriteStream(__dirname + '/userFav.csv'));
 
   var userId = 1;
@@ -129,4 +130,3 @@ function writeUserFav(totalRecords) {
   }
   helper();
 }
-writeUserFav(totalRecords);
