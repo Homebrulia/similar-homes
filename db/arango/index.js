@@ -36,24 +36,9 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           listing_id : {type: "number"},
-          similar_listings: {
-            type: "array",
-            items: {
-              type: "object",
-              maximum: 18,
-              properties: {
-                _key: { type: "number"},
-                url: { type: "string", "maxLength" : 100},
-                price: { type: "number"},
-                bed: { type: "number"},
-                bath: { type: "number"},
-                sqft: { type: "number"},
-                address: { type: "string", "maxLength" : 100},
-              },
-            }
-          }
+          similar_listing: {type: "object"}
         },
-        required: ["listing_id", "similar_listings"]
+        required: ["listing_id", "similar_listing"]
       },
       level: "moderate",
       message: "Schema validation failed."
@@ -83,23 +68,9 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           user_id : {type: "number"},
-          fav_listings: {
-            type: "array",
-            items: {
-              type: "object",
-              properties: {
-                _key: { type: "number"},
-                url: { type: "string", "maxLength" : 100},
-                price: { type: "number"},
-                bed: { type: "number"},
-                bath: { type: "number"},
-                sqft: { type: "number"},
-                address: { type: "string", "maxLength" : 100},
-              },
-            }
-          }
+          fav_listing: {type: "object"}
         },
-        required: ["user_id", "fav_listings"]
+        required: ["user_id", "fav_listing"]
       },
       level: "moderate",
       message: "Schema validation failed."

@@ -13,7 +13,11 @@
     "react-dev": "webpack -w",
     "react-prod": "webpack",
     "start": "nodemon ./server/server.js",
-    "seed-database": "node seed.js"
+    "seed-database": "node seed.js",
+    "arango-schema": "node db/arango/index.js",
+    "arango-csv": "node db/arango/csvGenerator.js",
+    "postgres-schema": "node db/postgres/index.js",
+    "postgres-csv": "node db/postgres/csvGenerator.js"
   },
   "keywords": [],
   "devDependencies": {

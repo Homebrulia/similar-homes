@@ -26,3 +26,6 @@ build/
 
 ## Key Files
 *.pem
+
+## CSV Files
+*.csv
