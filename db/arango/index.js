@@ -3,7 +3,11 @@ var username = 'root';
 var password = '';
 db.useBasicAuth(username, password);
 
-db.createDatabase('similar_homes')
+db.dropDatabase('similar_homes')
+  .then(() => {
+    console.log('Database deleted');
+    return db.createDatabase('similar_homes')
+  })
   .then(() => {
     console.log('Database created');
     return db.useDatabase('similar_homes');
@@ -37,25 +41,16 @@ db.createDatabase('similar_homes')
         properties: {
           listing_id : {type: "number"},
           similar_listings: {
-            type: "array",
+            type: "string",
             items: {
               type: "object",
-              maximum: 18,
-              properties: {
-                _key: { type: "number"},
-                url: { type: "string", "maxLength" : 100},
-                price: { type: "number"},
-                bed: { type: "number"},
-                bath: { type: "number"},
-                sqft: { type: "number"},
-                address: { type: "string", "maxLength" : 100},
-              },
+              maximum: 12,
             }
           }
         },
         required: ["listing_id", "similar_listings"]
       },
-      level: "moderate",
+      level: "none",
       message: "Schema validation failed."
     };
     return similar_listings.create({'schema': schema});
@@ -67,7 +62,7 @@ db.createDatabase('similar_homes')
       rule: {
         properties: {
           _key: { type: "number"},
-          name: { type: "string", "maxLength" : 20},
+          name: { type: "string", "maxLength" : 30},
         },
         required: ["name"]
       },
@@ -87,21 +82,12 @@ db.createDatabase('similar_homes')
             type: "array",
             items: {
               type: "object",
-              properties: {
-                _key: { type: "number"},
-                url: { type: "string", "maxLength" : 100},
-                price: { type: "number"},
-                bed: { type: "number"},
-                bath: { type: "number"},
-                sqft: { type: "number"},
-                address: { type: "string", "maxLength" : 100},
-              },
             }
           }
         },
         required: ["user_id", "fav_listings"]
       },
-      level: "moderate",
+      level: "none",
       message: "Schema validation failed."
     };
     return user_fav.create({'schema': schema});
