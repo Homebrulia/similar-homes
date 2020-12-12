@@ -59,6 +59,7 @@
     "faker": "^5.1.0",
     "fs": "0.0.1-security",
     "mongoose": "^4.6.4",
+    "newrelic": "^7.0.2",
     "nodemon": "^1.19.2",
     "pg": "^8.5.1",
     "react": "^16.8.6",

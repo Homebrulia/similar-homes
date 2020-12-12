@@ -42,6 +42,7 @@ function writeListings(totalRecords) {
 }
 writeListings(totalRecords);
 
+
 function writeUsers(totalRecords) {
   var writer = csvWriter({separator: '^', headers: ["id", "name"]});
   writer.pipe(fs.createWriteStream(__dirname + '/users.csv'));

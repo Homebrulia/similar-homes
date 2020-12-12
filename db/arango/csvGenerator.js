@@ -2,7 +2,7 @@ let faker = require('faker');
 let fs = require('fs');
 var csvWriter = require('csv-write-stream')
 
-var totalRecords = 10**3;
+var totalRecords = 10**7;
 var listings = [];
 
 function writeListings(totalRecords) {

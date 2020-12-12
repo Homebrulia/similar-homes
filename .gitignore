@@ -29,3 +29,6 @@ build/
 
 ## CSV Files
 *.csv
+
+##New Relic
+newrelic.js
