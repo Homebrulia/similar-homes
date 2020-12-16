@@ -3,7 +3,8 @@ npm-debug.log
 .gitignore
 package-lock.json
 db/arango
-db/postgres/seed/*.csv
+db/postgres/seed
+.git
 ## MAC files ##
 .DS_Store
 
