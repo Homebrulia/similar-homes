@@ -13,10 +13,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var id = window.location.href.split('/')[4];
     axios({
       method: 'get',
-      url: `/listings/${id}/similar`,
+      url: `${window.location.href}similar`,
     })
       .then((response) => {
         console.log('success', response.data.similarHomes);

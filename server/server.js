@@ -4,9 +4,6 @@ const app = express();
 const bodyParser = require('body-parser');
 
 var router = require('./router');
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:/similarhomes');
 
 app.use(bodyParser.json());
 
