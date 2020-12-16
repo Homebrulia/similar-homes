@@ -13,6 +13,7 @@
     "react-dev": "webpack -w",
     "react-prod": "webpack",
     "start": "nodemon ./server/server.js",
+    "start-prod": "node ./server/server.js",
     "seed-database": "node seed.js",
     "arango-schema": "node db/arango/index.js",
     "arango-csv": "node db/arango/csvGenerator.js",
