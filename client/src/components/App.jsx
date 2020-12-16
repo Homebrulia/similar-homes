@@ -13,14 +13,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    var id = window.location.href.split('/')[4];
     axios({
       method: 'get',
-      url: `${window.location.href}listing`,
+      url: `/listings/${id}/similar`,
     })
       .then((response) => {
-        console.log('success', response.data);
+        console.log('success', response.data.similarHomes);
         this.setState({
-          listings: response.data,
+          listings: response.data.similarHomes,
         });
       })
       .catch((err) => console.log(err));
