@@ -1,1 +1,1 @@
-ssh -i "/Users/lucychen/Hack Reactor/image-carousel/imageCarousel.pem" ubuntu@ec2-13-56-19-216.us-west-1.compute.amazonaws.com
+ssh -i "/Users/shailee/Documents/Programming/HackReactor/image-carousel-sdc/carousel-fec.pem" ubuntu@ec2-13-57-188-150.us-west-1.compute.amazonaws.com
