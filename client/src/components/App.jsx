@@ -18,7 +18,6 @@ class App extends React.Component {
       url: `${window.location.href}similar`,
     })
       .then((response) => {
-        console.log('success', response.data.similarHomes);
         this.setState({
           listings: response.data.similarHomes,
         });
