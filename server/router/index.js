@@ -8,6 +8,6 @@ router.use('/listings/:id', express.static(publicDir));
 
 router.get('/listings/:id/similar', controller.getSimilar);
 
-router.get('/loaderio-25354d69204a7fec2f13f8bfce9299df', (req, res) => {res.send('loaderio-25354d69204a7fec2f13f8bfce9299df')});
+router.get('/loaderio-4c3133e1f72617ccff4f69460cb15781', (req, res) => {res.send('loaderio-4c3133e1f72617ccff4f69460cb15781')});
 
 module.exports = router;
