@@ -23,6 +23,12 @@ li.neighborhood {
   text-overflow: ellipsis;
 }
 
+li.address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 li.price {
   height: 24px;
   display: block;

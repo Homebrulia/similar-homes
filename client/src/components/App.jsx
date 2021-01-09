@@ -15,12 +15,11 @@ class App extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: `${window.location.href}listing`,
+      url: `${window.location.href}similar`,
     })
       .then((response) => {
-        console.log('success', response.data);
         this.setState({
-          listings: response.data,
+          listings: response.data.similarHomes,
         });
       })
       .catch((err) => console.log(err));

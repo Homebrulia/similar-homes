@@ -1,0 +1,1 @@
+ssh -i "/Users/shailee/Documents/Programming/HackReactor/image-carousel-sdc/carousel-fec.pem" ubuntu@ec2-54-67-103-68.us-west-1.compute.amazonaws.com

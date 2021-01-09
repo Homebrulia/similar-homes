@@ -7,27 +7,56 @@
 ## Table of Contents
 
 1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Usage](#usage)
+3. [API](#api)
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 12.13.0
 
-## Development
+## Usage
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-npm install -g webpack
+```
 npm install
 ```
 
-## Create
+### Starting the app
+
+From within the root directory:
+
+```
+npm run start
+npm run react-dev
+```
+
+### Running tests
+
+From within the root directory:
+
+```
+npm run test
+npm run test:cover
+```
+
+### Seeding data
+
+From within the root directory:
+
+```
+npm run postgres-schema
+npm run postgres-csv
+npm run postgres-load
+```
+
+## API
+
+### Create
 **Method:**  POST\
 **Endpoint:**  /listings/:id/similar\
 **Request Body:**
@@ -45,7 +74,7 @@ npm install
 ```
 **Response Object:**  HTTP Status Code 201
 
-## Read:
+### Read
 **Method:**  GET\
 **Endpoint:**  /listings/:id/similar\
 **Response Object:**
@@ -68,7 +97,7 @@ npm install
 }
 ```
 
-## Update:
+### Update
 **Method:**  PUT\
 **Endpoint:**  /listings/:id/similar/:similar_id\
 **Request Body:**
@@ -79,7 +108,7 @@ npm install
 ```
 **Response Object:**  HTTP Status Code 200
 
-## Delete:
+### Delete
 **Method:**  DELETE\
 **Endpoint:**  /listings/:id/similar/:similar_id\
 **Response Object:**  HTTP Status Code 202

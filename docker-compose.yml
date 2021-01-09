@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  image-carousel-sdc:
+    build: .
+    ports:
+      - '8030:8030'

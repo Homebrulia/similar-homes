@@ -1,26 +1,15 @@
-require('newrelic');
+var newRelic = require('newrelic');
 const express = require('express');
-
+const app = express();
 const bodyParser = require('body-parser');
 
-const path = require('path');
-
-const app = express();
-const port = 8030;
-const mongoose = require('mongoose');
-const listingRouter = require('./routers/listing.js');
-
-mongoose.connect('mongodb://localhost:/similarhomes');
-
-const publicDir = path.join(__dirname, '../client/dist');
+var router = require('./router');
 
 app.use(bodyParser.json());
 
-app.use('/carousel/:id', express.static(publicDir));
+app.use('/', router);
 
-// get all similar listings when given a specific id
-app.get('*/:id/listing', listingRouter.getOne);
-
-app.listen(8030, () => {
+const port = 8030;
+app.listen(port, () => {
   console.log(`listening on http://localhost:${port}`);
 });
