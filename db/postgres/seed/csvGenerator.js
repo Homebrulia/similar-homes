@@ -1,32 +1,32 @@
-let faker = require('faker');
-let fs = require('fs');
-var csvWriter = require('csv-write-stream')
+const faker = require('faker');
+const fs = require('fs');
+const csvWriter = require('csv-write-stream')
 
-var totalRecords = 10**7;
+const totalRecords = 10**7;
 
 function writeListings(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
+  const writer = csvWriter({separator: '^', headers: ["id", "url", "price", "bed", "bath", "sqft", "address"]});
   writer.pipe(fs.createWriteStream(__dirname + '/listings.csv'));
 
-  let urls = [];
-  for(var i = 1; i <= 60; i++) {
+  const urls = [];
+  for(let i = 1; i <= 60; i++) {
     urls.push(`https://shailee-fec-photos.s3-us-west-1.amazonaws.com/fec_photos/photo${i}.webp`);
   }
 
-  let addresses = [];
-  for(var i = 1; i <= 50; i++) {
-    var address = `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}`
+  const addresses = [];
+  for(let i = 1; i <= 50; i++) {
+    const address = `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}`
     addresses.push(address);
   }
 
-  var listingId = 1;
+  let listingId = 1;
   writer.on('drain', helper);
   function helper() {
     for (; listingId <= totalRecords; listingId++) {
-      var price = Math.floor(Math.random() * 100000000 + 20000000);
-      var bed = Math.floor(Math.random() * 8 + 5);
-      var bath = Math.floor(Math.random() * 8 + 8);
-      var sqft = Math.floor(Math.random() * 30000 + 15000);
+      const price = Math.floor(Math.random() * 100000000 + 20000000);
+      const bed = Math.floor(Math.random() * 8 + 5);
+      const bath = Math.floor(Math.random() * 8 + 8);
+      const sqft = Math.floor(Math.random() * 30000 + 15000);
       if (listingId === totalRecords) {
         writer.write([listingId, urls[listingId % urls.length], price, bed, bath, sqft, addresses[listingId % addresses.length]], () => {
           writer.end();
@@ -44,15 +44,15 @@ writeListings(totalRecords);
 
 
 function writeUsers(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["id", "name"]});
+  const writer = csvWriter({separator: '^', headers: ["id", "name"]});
   writer.pipe(fs.createWriteStream(__dirname + '/users.csv'));
 
-  let names = [];
-  for(var i = 0; i < 50; i++) {
+  const names = [];
+  for(let i = 0; i < 50; i++) {
     names.push(faker.name.findName());
   }
 
-  var userId = 1;
+  let userId = 1;
   writer.on('drain', helper);
   function helper() {
     for (; userId <= totalRecords; userId++) {
@@ -72,15 +72,15 @@ function writeUsers(totalRecords) {
 writeUsers(totalRecords);
 
 function writeSimilarListings(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["listing_id", "similar_listing_id"]});
+  const writer = csvWriter({separator: '^', headers: ["listing_id", "similar_listing_id"]});
   writer.pipe(fs.createWriteStream(__dirname + '/similarListings.csv'));
 
-  var listingId = 1;
+  let listingId = 1;
   writer.on('drain', helper);
   function helper() {
     for (; listingId <= totalRecords; listingId++) {
-      for (var i = 0; i < 12; i++) {
-        var similarListingId = Math.floor(Math.random() * totalRecords + 1);
+      for (let i = 0; i < 12; i++) {
+        const similarListingId = Math.floor(Math.random() * totalRecords + 1);
         if(listingId === totalRecords && i === 11) {
           writer.write([listingId, similarListingId], () => {
             writer.end();
@@ -98,16 +98,16 @@ function writeSimilarListings(totalRecords) {
 writeSimilarListings(totalRecords);
 
 function writeUserFav(totalRecords) {
-  var writer = csvWriter({separator: '^', headers: ["user_id", "listing_id"]});
+  const writer = csvWriter({separator: '^', headers: ["user_id", "listing_id"]});
   writer.pipe(fs.createWriteStream(__dirname + '/userFav.csv'));
 
-  var userId = 1;
+  let userId = 1;
   writer.on('drain', helper);
   function helper() {
     for (; userId <= totalRecords; userId++) {
-      var counter = Math.floor(Math.random() * 10);
-      for (var i = 0; i < counter; i++) {
-        var listingId = Math.floor(Math.random() * totalRecords + 1);
+      const counter = Math.floor(Math.random() * 10);
+      for (let i = 0; i < counter; i++) {
+        const listingId = Math.floor(Math.random() * totalRecords + 1);
         if (userId === totalRecords && i === counter - 1) {
           writer.write([userId, listingId], () => {
             writer.end();
